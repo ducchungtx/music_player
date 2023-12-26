@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:music_player/common/color_extension.dart';
 import 'package:music_player/common_widget/icon_text_row.dart';
 import 'package:music_player/view/home/home_view.dart';
+import 'package:music_player/view/settings/settings_view.dart';
 import 'package:music_player/view/songs/songs_view.dart';
 import 'package:music_player/view_model/splash_view_model.dart';
 
@@ -136,10 +137,10 @@ class _MainTabViewState extends State<MainTabView>
           ],
         ),
       ),
-      body: TabBarView(controller: controller, children: [
-        const HomeView(),
-        const SongsView(),
-        Container(),
+      body: TabBarView(controller: controller, children: const [
+        HomeView(),
+        SongsView(),
+        SettingsView(),
       ]),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(color: TColor.bg, boxShadow: const [

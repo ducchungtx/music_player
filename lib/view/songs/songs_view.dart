@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:music_player/common/color_extension.dart';
+import 'package:music_player/view/songs/all_songs_view.dart';
+import 'package:music_player/view/songs/playlists_view.dart';
 import 'package:music_player/view_model/splash_view_model.dart';
 
 class SongsView extends StatefulWidget {
@@ -82,14 +84,32 @@ class _SongsViewState extends State<SongsView>
                 fontSize: 15,
                 fontWeight: FontWeight.w600),
             tabs: const [
-              Tab(text: "All Songs"),
+              Tab(
+                text: "All Songs",
+                height: 25,
+              ),
               Tab(text: "Playlists"),
               Tab(text: "Albums"),
               Tab(text: "Artists"),
               Tab(text: "Genres"),
             ],
           ),
-        )
+        ),
+        Expanded(
+          child: TabBarView(controller: controller, children: [
+            const AllSongsView(),
+            const PlaylistsView(),
+            Container(
+              child: Center(child: Text("Albums")),
+            ),
+            Container(
+              child: Center(child: Text("Artists")),
+            ),
+            Container(
+              child: Center(child: Text("Genres")),
+            ),
+          ]),
+        ),
       ]),
     );
   }
